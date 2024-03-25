@@ -1,0 +1,17 @@
+<!-- <mat-list>
+  <a mat-list-item *ngFor="let p of pokemons">
+    <span matListItemTitle>{{ p.name }}</span>
+    <span>{{ p.types[0] }}</span>
+  </a>
+</mat-list> -->
+<!-- <pre>{{pokemons | json}}</pre> -->
+<mat-nav-list>
+    <a
+      mat-list-item
+      *ngFor="let p of pokemons"
+      [routerLink]="['/pokemons', p.id]"
+    >
+      <span matListItemTitle>{{ p.name }}</span>
+      <span>{{ p.types[0] }}</span>
+    </a>
+  </mat-nav-list>
