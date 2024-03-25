@@ -17,10 +17,10 @@ export class PokemonService {
       "X-Api-Key": environment.POKEMON_SERVER_API_KEY
     })
   }
-  search(pageSize:Number = 20): Observable<SearchCardsResponse>{
+  search(pageSize:number = 20): Observable<SearchCardsResponse>{
     return this.http.get<SearchCardsResponse>(`${environment.POKEMON_SERVER_BASE_URL}/cards?pageSize=${pageSize}`,this.httpOptions)
   }
   getById(id:string){
-    
+
   }
 }
