@@ -1,0 +1,11 @@
+
+<div *ngIf="ns.messaggi.length > 0">
+<mat-list>
+    <mat-list-item *ngFor="let messaggio of ns.messaggi">
+        {{messaggio}}
+    </mat-list-item>
+</mat-list>
+<button mat-raised-button (click)="ns.svuota()">SVUOTA</button>
+</div>
+
+
