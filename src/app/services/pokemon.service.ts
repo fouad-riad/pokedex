@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { SearchCardsResponse, CardResponse } from '../models/pokemon';
+import { Observable, of } from 'rxjs';
+import {
+  SearchCardsResponse,
+  CardResponse,
+  PokemonCatturato,
+} from '../models/pokemon';
 import { environment } from '../../environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PokemonService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private as: AuthService) {}
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -26,6 +31,18 @@ export class PokemonService {
     return this.http.get<CardResponse>(
       `${environment.POKEMON_SERVER_BASE_URL}/cards/${id}`,
       this.httpOptions
+    );
+  }
+  getCatturati(): Observable<PokemonCatturato[]> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + this.as.getLoggedUser()?.accessToken,
+      }),
+    };
+    return this.http.get<PokemonCatturato[]>(
+      `${environment.JSON_SERVER_BASE_URL}/catturati?userId=` +
+        this.as.getLoggedUser()?.user.id,
+      httpOptions
     );
   }
 }

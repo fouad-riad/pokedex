@@ -16,7 +16,12 @@ import {HttpClientModule} from "@angular/common/http";
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { PokemonAttackComponent } from './components/pokemon-attack/pokemon-attack.component';
-import { NotificheComponent } from './components/notifiche/notifiche.component'
+import { NotificheComponent } from './components/notifiche/notifiche.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import { PokemonCatturatiComponent } from './components/pokemon-catturati/pokemon-catturati.component'
 
 
 @NgModule({
@@ -26,7 +31,10 @@ import { NotificheComponent } from './components/notifiche/notifiche.component'
     PokemonListComponent,
     PokemonDetailComponent,
     PokemonAttackComponent,
-    NotificheComponent
+    NotificheComponent,
+    RegisterComponent,
+    LoginComponent,
+    PokemonCatturatiComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,11 @@ import { NotificheComponent } from './components/notifiche/notifiche.component'
     HttpClientModule,
     MatFormFieldModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    FormsModule,
+    MatInputModule
+    
+    
   ],
   providers: [
     provideAnimationsAsync()

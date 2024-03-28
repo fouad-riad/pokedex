@@ -2,9 +2,14 @@
     <mat-icon>rss_feed</mat-icon>
     <span>pokedex</span>
     <a mat-button routerLink="/" >pokemon</a>
+    <a mat-button routerLink="/pokemon/catturati" >catturati</a>
+    <span style="flex: 1 auto;"></span>
     <mat-chip color="primary" *ngIf="ns.messaggi.length > 0" (click)="ns.svuota()">
         {{ns.messaggi.length}} notifiche
     </mat-chip>
+    <a mat-button routerLink="/register" >Registrazione</a>
+    <a mat-button routerLink="/login" >Entra</a>
+    <button mat-button (click)="logout()" >Entra</button>
 </mat-toolbar>
 
 
